@@ -119,7 +119,12 @@ class AVL{
                 while(crawl->left)crawl = crawl->left;
                 root->val = crawl->val;
                 root->count = crawl->count;
+
                 root->right = deleteAll(root->right, crawl->val);
+
+                root->height = max(getHeight(root->left), getHeight(root->right))+1;
+                root->size = getSize(root->left) + getSize(root->right) + root->count;
+
                 return root;
             }
             else if(root->right){
@@ -219,6 +224,10 @@ class AVL{
                 root->val = crawl->val;
                 root->count = crawl->count;
                 root->right = deleteAll(root->right, crawl->val);
+
+                root->height = max(getHeight(root->left), getHeight(root->right))+1;
+                root->size = getSize(root->left) + getSize(root->right) + root->count;
+
                 return root;
             }
             else if(root->right){
@@ -393,8 +402,12 @@ int main(){
 
     srand(time(NULL));  //seeding random function
 
+    
+
     for(int i = 1; i < 100; i++){   //Inserting Random Values from 0 to 9 , 100 times
-        tree.insert(rand()%10);
+        int x = rand()%10;
+        if(tree.getCountOf(x) == 0)cout<<"Inserted "<<x<<endl;
+        tree.insert(x);
     }
 
     cout<<"Initial Tree : \n";
