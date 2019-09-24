@@ -399,17 +399,36 @@ class AVL{
 int main(){
     // Driver Function
 
-    AVL<pair<int,int> > tree;   // Our AVL tree Object
+    cout<<"AVL Pair Tree\n";
 
-    tree.insert({3,4});
-    tree.insert({8,9});
-    tree.insert({10,11});
-    tree.insert({3,4});
+    AVL<pair<int,int> > tree1;   // AVL pair tree
 
-    cout<< tree.getCountOf({3,4})<<endl;
+    tree1.insert({3,4});
+    tree1.insert({8,9});
+    tree1.insert({10,11});
+    tree1.insert({3,4});
 
-    cout<<tree.getLargerThan({4,0})<<endl;
+    cout<< tree1.getCountOf({3,4})<<endl;
 
-    cout<<tree.getSmallerThan({8,11})<<endl;
+    cout<<tree1.getLargerThan({4,0})<<endl;
+
+    cout<<tree1.getSmallerThan({8,11})<<endl;
+
+
+
+    cout<<"Now Integer Tree\n";
+
+    AVL<int> tree2; //AVL integer tree
+
+    tree2.insert(4);
+    tree2.insert(99);
+    tree2.insert(87);
+    tree2.insert(14);
+    tree2.insert(9);
+    tree2.insert(7);
+
+    cout<< tree2.getLargerThan(10)<<endl;
+
+    cout<<tree2.getSmallerThan(10)<<endl;
 
 }
